@@ -1,0 +1,14 @@
+clc;
+clear all;
+close all;
+Fs = 10000;% sampling frequency
+t = 0:1/Fs:1;
+mesamp = 2;
+Fm = 2;%message frequency
+Fc = 40;%carrier frequency
+ini_phase = 0;%initial phase
+freqdev = 10;%frequency deviation
+x = mesamp*sin(2*pi*Fm*t);
+y = fmmod(x,Fc,Fs,freqdev,ini_phase);
+plot(t,y,t,x/4,'--');legend('FM','message');
+title('Frequency Modulation');
